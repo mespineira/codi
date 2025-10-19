@@ -30,6 +30,15 @@ export const lessonGroups = [
                 gems: [{ row: 2, col: 1 }, { row: 3, col: 3 }],
                 commands: ['moveForward', 'turnLeft', 'turnRight', 'jump'],
                 solution: ['moveForward', 'moveForward', 'jump', 'turnRight', 'moveForward', 'moveForward', 'turnLeft', 'moveForward', 'jump']
+            },
+            { // Nivel 4
+                hint: "Objetivo: El camino es más largo y tiene más giros. ¡Planifica bien tu ruta para coger las dos gemas!",
+                gridSize: { rows: 4, cols: 4 },
+                layout: ['gprg', 'gprg', 'gppp', 'gggp'],
+                start: { row: 0, col: 1, dir: 0 },
+                gems: [{ row: 2, col: 1 }, { row: 3, col: 3 }],
+                commands: ['moveForward', 'turnLeft', 'turnRight', 'jump'],
+                solution: ['moveForward', 'moveForward', 'jump', 'turnRight', 'moveForward', 'moveForward', 'turnLeft', 'moveForward', 'jump']
             }
         ]
     },

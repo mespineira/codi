@@ -25,7 +25,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         }
     }
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=1.0.6">
 </head>
 <body>
     <div id="loading-overlay" class="overlay">Cargando Escenario 3D...</div>
@@ -67,14 +67,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <div id="user-info">
                     Hola, <b><?php echo htmlspecialchars($_SESSION["email"]); ?></b>. <a href="logout.php">Cerrar sesión</a>
                 </div>
-                <div id="code-output"></div>
-                <div id="code-output-icons"></div>
+                <div id="level-hint-container">
+                    <h3 id="level-hint-title">Objetivo de la Lección</h3>
+                    <p id="level-hint-text"></p>
+                </div>
+                <div id="code-output-container">
+                    <div id="code-output"></div>
+                    <div id="code-output-icons"></div>
+                </div>
             </div>
         </div>
         <div id="command-panel" class="bottom-panel"></div>
     </div>
-
-    <script type="module" src="js/main.js?v=1.0.4"></script>
+    
+    <script>
+        // Inyectar el nivel de inicio desde PHP a una variable global
+        window.startLevel = <?php echo isset($_SESSION['level']) ? $_SESSION['level'] : 0; ?>;
+    </script>
+    <script type="module" src="js/main.js?v=1.0.5"></script>
 </body>
 </html>
 

@@ -9,16 +9,37 @@ body, html {
 #stage { width: 50%; height: 100%; position: relative; border-right: 2px solid #333; box-sizing: border-box; cursor: grab; }
 #stage:active { cursor: grabbing; }
 #stage-canvas { width: 100%; height: 100%; display: block; }
+
 #code-area { 
     width: 50%; height: 100%; background-color: #1e1e1e; box-sizing: border-box; 
-    padding-top: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    overflow-y: auto; 
-    display: flex; flex-direction: column; gap: 5px; 
+    display: flex; flex-direction: column;
     position: relative;
+    overflow: hidden; /* Evita que el contenido se desborde */
 }
+
+#level-hint-container {
+    flex-shrink: 0; /* No se encoge */
+    padding: 50px 20px 10px 20px;
+    border-bottom: 1px solid #444;
+    max-height: 40%; /* Límite de altura */
+    overflow-y: auto;
+}
+#level-hint-title {
+    margin: 0;
+    color: #e9c46a;
+}
+#level-hint-text {
+    margin: 5px 0 0 0;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+#code-output-container {
+    flex-grow: 1; /* Ocupa el resto del espacio */
+    overflow-y: auto;
+    padding: 20px;
+}
+
 #code-output { white-space: pre-wrap; font-size: 1.2rem; line-height: 1.6; color: #9CDCFE; }
 #code-output span { color: #DCDCAA; }
 #code-output-icons { display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -155,3 +176,4 @@ body, html {
     padding: 15px;
     font-size: 1rem;
 }
+

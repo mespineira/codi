@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'OrbitControls';
 import TWEEN from 'TWEEN';
-import { lessonGroups } from './levels.js?v=1.0.4';
+import { lessonGroups } from './levels.js?v=1.0.6';
 
 const ICONS = {
     moveForward: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20V4M12 4L6 10M12 4L18 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
@@ -39,6 +39,8 @@ const sidebarOverlay = document.getElementById('sidebar-overlay');
 const closeSidebarBtn = document.getElementById('close-sidebar-btn');
 const levelListContainer = document.getElementById('level-list');
 const modeSwitchBtn = document.getElementById('mode-switch-btn');
+const levelHintText = document.getElementById('level-hint-text');
+const codeOutputContainer = document.getElementById('code-output-container');
 
 // --- ESTADO DEL JUEGO ---
 let commandQueue = [];
@@ -88,6 +90,8 @@ function loadLevel(groupIndex, levelIndex) {
 
     currentGroupIndex = groupIndex;
     currentLevelIndex = levelIndex;
+    
+    levelHintText.textContent = level.hint;
 
     scene.remove(worldGroup);
     worldGroup = new THREE.Group();
@@ -450,7 +454,7 @@ function updateCodeOutput() {
         codeOutputIcons.style.display = 'none';
         codeOutput.innerHTML = commandQueue.map(cmd => `<div>${cmd}<span>()</span></div>`).join('');
     }
-    codeArea.scrollTop = codeArea.scrollHeight;
+    codeOutputContainer.scrollTop = codeOutputContainer.scrollHeight;
 }
 
 function gridToWorld(row, col, gridSize) {

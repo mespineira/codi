@@ -25,7 +25,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         }
     }
     </script>
-    <link rel="stylesheet" href="css/style.css?v=1.0.6">
+    <link rel="stylesheet" href="css/style.css?v=1.0.9">
 </head>
 <body>
     <div id="loading-overlay" class="overlay">Cargando Escenario 3D...</div>
@@ -84,7 +84,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         // Inyectar el nivel de inicio desde PHP a una variable global
         window.startLevel = <?php echo isset($_SESSION['level']) ? $_SESSION['level'] : 0; ?>;
     </script>
-    <script type="module" src="js/main.js?v=1.0.5"></script>
+    <script type="module" src="js/main.js?v=1.0.9"></script>
 </body>
 </html>
 
